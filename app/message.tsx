@@ -17,7 +17,10 @@ export default function Message() {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <AntDesign name="left" size={24} color="white" />
+        <TouchableOpacity onPress={() => router.push("/")}>
+          <AntDesign name="left" size={24} color="white" />
+        </TouchableOpacity>
+
         <View style={styles.user}>
           <Image
             source={{
