@@ -18,7 +18,7 @@ const Layout = () =>
         name="feed"
         options={{
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="home-outline" size={size} color="white" />
+            <Ionicons name="home-outline" size={30} color="white" />
           ),
           headerShown: false,
         }}
@@ -27,7 +27,7 @@ const Layout = () =>
         name="index"
         options={{
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="search-outline" size={size} color="white" />
+            <Feather name="user" size={30} color="white" />
           ),
           headerShown: false,
         }}
