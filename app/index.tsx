@@ -35,6 +35,7 @@ export default function index() {
           <Feather name="more-horizontal" size={30} color="white" />
         </View>
       </View>
+
       <ScrollView contentContainerStyle={styles.scrollContent}>
         <View
           style={{
@@ -199,6 +200,7 @@ export default function index() {
               <MaterialIcons name="person-add" size={20} color="white" />
             </View>
           </View>
+
           <View
             style={{
               flexDirection: "row",
@@ -231,6 +233,7 @@ export default function index() {
             <FontAwesomeIcon name="user-o" size={30} color="white" />
           </View>
         </View>
+
         <View style={styles.imageGrid}>
           <Image
             source={{
@@ -270,11 +273,15 @@ export default function index() {
           />
         </View>
       </ScrollView>
+
       <View style={styles.buttonContainer}>
         <Button title="Alert" onPress={showAlert} color={"white"} />
       </View>
+
       <View style={styles.footer}>
-        <Ionicons name="home-outline" size={30} color="white" />
+        <TouchableOpacity onPress={() => router.push("/feed")}>
+          <Ionicons name="home-outline" size={30} color="white" />
+        </TouchableOpacity>
         <Ionicons name="search-outline" size={30} color="white" />
         <Ionicons name="add-circle-outline" size={30} color="white" />
         <FontAwesomeIcon name="play-circle" size={30} color="white" />
@@ -302,12 +309,10 @@ const styles = StyleSheet.create({
     backgroundColor: "black",
   },
   footer: {
-    position: "absolute",
-    bottom: 0,
     width: "100%",
     paddingHorizontal: 30,
     paddingTop: 10,
-    paddingBottom: 35,
+    paddingBottom: 30,
     flexDirection: "row",
     justifyContent: "space-between",
     backgroundColor: "black",
@@ -317,7 +322,7 @@ const styles = StyleSheet.create({
   scrollContent: {
     flexGrow: 1,
     backgroundColor: "black",
-    paddingBottom: 10,
+    paddingBottom: 40,
   },
   imageGrid: {
     flexGrow: 1,
