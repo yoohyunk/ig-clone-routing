@@ -278,7 +278,7 @@ export default function index() {
         <Button title="Alert" onPress={showAlert} color={"white"} />
       </View>
 
-      <View style={styles.footer}>
+      {/* <View style={styles.footer}>
         <TouchableOpacity onPress={() => router.push("/feed")}>
           <Ionicons name="home-outline" size={30} color="white" />
         </TouchableOpacity>
@@ -286,7 +286,7 @@ export default function index() {
         <Ionicons name="add-circle-outline" size={30} color="white" />
         <FontAwesomeIcon name="play-circle" size={30} color="white" />
         <Feather name="user" size={30} color="white" />
-      </View>
+      </View> */}
     </View>
   );
 }

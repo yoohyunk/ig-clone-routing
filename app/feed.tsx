@@ -1,23 +1,29 @@
-import React, { useState } from 'react';
-import { StyleSheet, Text, View, Image, ScrollView, Dimensions, NativeSyntheticEvent, NativeScrollEvent } from 'react-native';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
-import Feather from 'react-native-vector-icons/Feather';
+import React, { useState } from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  ScrollView,
+  Dimensions,
+  NativeSyntheticEvent,
+  NativeScrollEvent,
+} from "react-native";
+import Ionicons from "react-native-vector-icons/Ionicons";
+import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
+import Feather from "react-native-vector-icons/Feather";
 import { LinearGradient } from "expo-linear-gradient";
 
-
-const screenWidth = Dimensions.get('window').width;
+const screenWidth = Dimensions.get("window").width;
 
 export default function Feed() {
   const [currentIndex, setCurrentIndex] = useState(0);
-
 
   const images = [
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0IQ0E8QBrwViT6tBHS5ON7yK3wjZal2-EgQ&s",
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIyS5J0wzkCxrKUYMZYnxfezHhAxetFjuDcg&s",
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIyS5J0wzkCxrKUYMZYnxfezHhAxetFjuDcg&s",
   ];
-
 
   const handleScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
     const contentOffsetX = event.nativeEvent.contentOffset.x;
@@ -27,14 +33,12 @@ export default function Feed() {
 
   return (
     <View style={styles.container}>
-
       <ScrollView contentContainerStyle={styles.scrollContent}>
-
         <View style={styles.topBar}>
           <View style={styles.leftContainer}>
             <Image
               source={{
-                uri: 'https://cdn.discordapp.com/attachments/1335300949773647975/1349210854326800445/Instagram-Wordmark-White-Logo.wine.png?ex=67d24606&is=67d0f486&hm=e066af008ea6cd6cd591215c2203c060cd8bf738578d93956c85b02f4d0b547b&'
+                uri: "https://cdn.discordapp.com/attachments/1335300949773647975/1349210854326800445/Instagram-Wordmark-White-Logo.wine.png?ex=67d24606&is=67d0f486&hm=e066af008ea6cd6cd591215c2203c060cd8bf738578d93956c85b02f4d0b547b&",
               }}
               style={styles.logo}
             />
@@ -47,7 +51,12 @@ export default function Feed() {
           </View>
 
           <View style={styles.rightContainer}>
-            <Ionicons name="heart-outline" size={30} color="white" style={{ marginRight: 15 }} />
+            <Ionicons
+              name="heart-outline"
+              size={30}
+              color="white"
+              style={{ marginRight: 15 }}
+            />
             <Ionicons name="chatbubble-outline" size={30} color="white" />
           </View>
         </View>
@@ -56,14 +65,14 @@ export default function Feed() {
           <ScrollView
             horizontal
             showsHorizontalScrollIndicator={false}
-            contentContainerStyle={{ alignItems: 'center' }}
+            contentContainerStyle={{ alignItems: "center" }}
           >
             <View
               style={{
                 backgroundColor: "black",
                 borderRadius: 50,
                 padding: 5,
-                position: 'relative'
+                position: "relative",
               }}
             >
               <Image
@@ -77,7 +86,7 @@ export default function Feed() {
                 }}
               />
               <View style={styles.plusCircle}>
-                <Ionicons name="add" size={20} color="white"/>
+                <Ionicons name="add" size={20} color="white" />
               </View>
             </View>
 
@@ -220,12 +229,10 @@ export default function Feed() {
                 />
               </View>
             </LinearGradient>
-
           </ScrollView>
         </View>
 
         <View style={styles.post}>
-
           <ScrollView
             horizontal
             pagingEnabled={true}
@@ -237,7 +244,6 @@ export default function Feed() {
             onScroll={handleScroll}
             scrollEventThrottle={16}
           >
-
             {images.map((image, index) => (
               <View key={index} style={styles.imageWrapper}>
                 <Image
@@ -251,46 +257,43 @@ export default function Feed() {
             ))}
           </ScrollView>
 
-
           <View style={styles.dotsContainer}>
             {images.map((_, index) => (
               <View
                 key={index}
-                style={[
-                  styles.dot,
-                  currentIndex === index && styles.activeDot,
-                ]}
+                style={[styles.dot, currentIndex === index && styles.activeDot]}
               />
             ))}
           </View>
 
-
           <View style={styles.footer}>
-            <View style={{ flexDirection: 'row', justifyContent: "flex-start", gap: 20 }}>
+            <View
+              style={{
+                flexDirection: "row",
+                justifyContent: "flex-start",
+                gap: 20,
+              }}
+            >
               <Ionicons name="heart-outline" size={30} color="white" />
               <Ionicons name="chatbubble-outline" size={30} color="white" />
               <Ionicons name="share-social-outline" size={30} color="white" />
             </View>
-            <View style={{ flexDirection: 'row', justifyContent: "flex-end" }}>
+            <View style={{ flexDirection: "row", justifyContent: "flex-end" }}>
               <Feather name="bookmark" size={30} color="white" />
             </View>
           </View>
 
-
           <Text style={styles.likedByText}>Liked by user1 and others</Text>
-
 
           <View style={styles.userComment}>
             <Text style={styles.userName}>user1</Text>
             <Text style={styles.commentText}>This is a sample comment!</Text>
           </View>
-
 
           <Text style={styles.dateText}>2 hours ago</Text>
         </View>
 
         <View style={styles.post}>
-
           <ScrollView
             horizontal
             pagingEnabled={true}
@@ -302,7 +305,6 @@ export default function Feed() {
             onScroll={handleScroll}
             scrollEventThrottle={16}
           >
-
             {images.map((image, index) => (
               <View key={index} style={styles.imageWrapper}>
                 <Image
@@ -316,53 +318,50 @@ export default function Feed() {
             ))}
           </ScrollView>
 
-
           <View style={styles.dotsContainer}>
             {images.map((_, index) => (
               <View
                 key={index}
-                style={[
-                  styles.dot,
-                  currentIndex === index && styles.activeDot,
-                ]}
+                style={[styles.dot, currentIndex === index && styles.activeDot]}
               />
             ))}
           </View>
 
-
           <View style={styles.footer}>
-            <View style={{ flexDirection: 'row', justifyContent: "flex-start", gap: 20 }}>
+            <View
+              style={{
+                flexDirection: "row",
+                justifyContent: "flex-start",
+                gap: 20,
+              }}
+            >
               <Ionicons name="heart-outline" size={30} color="white" />
               <Ionicons name="chatbubble-outline" size={30} color="white" />
               <Ionicons name="share-social-outline" size={30} color="white" />
             </View>
-            <View style={{ flexDirection: 'row', justifyContent: "flex-end" }}>
+            <View style={{ flexDirection: "row", justifyContent: "flex-end" }}>
               <Feather name="bookmark" size={30} color="white" />
             </View>
           </View>
 
-
           <Text style={styles.likedByText}>Liked by user1 and others</Text>
-
 
           <View style={styles.userComment}>
             <Text style={styles.userName}>user1</Text>
             <Text style={styles.commentText}>This is a sample comment!</Text>
           </View>
-
 
           <Text style={styles.dateText}>2 hours ago</Text>
         </View>
       </ScrollView>
 
-
-      <View style={styles.navBar}>
+      {/* <View style={styles.navBar}>
         <Ionicons name="home-outline" size={30} color="white" />
         <Ionicons name="search-outline" size={30} color="white" />
         <Ionicons name="add-circle-outline" size={30} color="white" />
         <FontAwesomeIcon name="play-circle" size={30} color="white" />
         <Feather name="user" size={30} color="white" />
-      </View>
+      </View> */}
     </View>
   );
 }
@@ -373,7 +372,7 @@ const styles = StyleSheet.create({
     backgroundColor: "black",
     alignItems: "center",
     justifyContent: "flex-start",
-    paddingTop: 20
+    paddingTop: 50,
   },
   topBar: {
     flexDirection: "row",
@@ -384,16 +383,16 @@ const styles = StyleSheet.create({
     backgroundColor: "black",
   },
   leftContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
   },
   logo: {
     width: 120,
     height: 40,
   },
   rightContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
   },
   scrollContent: {
     flexGrow: 1,
@@ -407,16 +406,16 @@ const styles = StyleSheet.create({
   },
   imageWrapper: {
     width: screenWidth,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
   imageContainer: {
-    width: '100%',
+    width: "100%",
     height: undefined,
     aspectRatio: 1,
   },
   scrollView: {
-    width: '100%',
+    width: "100%",
   },
   dotsContainer: {
     flexDirection: "row",
@@ -429,10 +428,10 @@ const styles = StyleSheet.create({
     width: 8,
     height: 8,
     borderRadius: 4,
-    backgroundColor: 'white',
+    backgroundColor: "white",
   },
   activeDot: {
-    backgroundColor: '#1dd8f5',
+    backgroundColor: "#1dd8f5",
   },
   footer: {
     flexDirection: "row",
@@ -457,7 +456,7 @@ const styles = StyleSheet.create({
   userName: {
     color: "white",
     fontWeight: "bold",
-    marginRight: 5
+    marginRight: 5,
   },
   commentText: {
     color: "white",
@@ -480,16 +479,16 @@ const styles = StyleSheet.create({
     borderColor: "black",
   },
   plusCircle: {
-    position: 'absolute',
+    position: "absolute",
     bottom: 0,
     right: 0,
     width: 30,
     height: 30,
-    backgroundColor: '#1dd8f5',
-    borderRadius: 15, 
+    backgroundColor: "#1dd8f5",
+    borderRadius: 15,
     borderWidth: 2,
-    borderColor: 'black', 
-    justifyContent: 'center',
-    alignItems: 'center',
+    borderColor: "black",
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
